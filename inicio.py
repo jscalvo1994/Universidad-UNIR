@@ -35,14 +35,12 @@ for i in range(n):
         if abs(matriz[k][i]) > max_value:
             max_value = abs(matriz[k][i])
             max_index = k
-    
     # Intercambiar filas si es necesario
     if max_index != i:
         matriz[i], matriz[max_index] = matriz[max_index], matriz[i]
         print(f"Intercambio de fila {i+1} con fila {max_index+1} (paso {i+1}):")
         for fila in matriz:
           print([round(elem, 2) for elem in fila]) 
-
     # Hacer ceros debajo del pivote en la columna actual
     pivot = matriz[i][i]
     for j in range(i + 1, n):
