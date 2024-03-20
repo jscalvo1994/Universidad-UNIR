@@ -24,29 +24,29 @@ while contador < 4:
         print("Valores no numéricos o separador no reconocido, por favor digita solo números separados por el signo ,")
 # Imprimimos la matriz
 for fila in matriz:
-    print(fila)
+    print(fila) # Imprimimos cada fila de la matriz
 # Implementación del método de eliminación de Gauss con pivoteo parcial escalado
 n = len(matriz)  # Obtener el tamaño de la matriz
-for i in range(n):
+for i in range(n): # Iterar sobre cada fila
     # Paso 1: Encontrar el pivote en la columna actual
-    max_index = i
-    max_value = abs(matriz[i][i])
-    for k in range(i + 1, n):
-        if abs(matriz[k][i]) > max_value:
-            max_value = abs(matriz[k][i])
-            max_index = k
+    max_index = i # Índice de la fila con el pivote más grande
+    max_value = abs(matriz[i][i]) # Valor del pivote más grande
+    for k in range(i + 1, n): # Iterar sobre las filas debajo del pivote
+        if abs(matriz[k][i]) > max_value: # Si encontramos un pivote más grande
+            max_value = abs(matriz[k][i]) # Actualizar el valor del pivote más grande
+            max_index = k # Actualizar el índice del pivote más grande       
     # Intercambiar filas si es necesario
-    if max_index != i:
-        matriz[i], matriz[max_index] = matriz[max_index], matriz[i]
-        print(f"Intercambio de fila {i+1} con fila {max_index+1} (paso {i+1}):")
-        for fila in matriz:
-          print([round(elem, 2) for elem in fila]) 
+    if max_index != i: # Si el pivote más grande no está en la fila actual
+        matriz[i], matriz[max_index] = matriz[max_index], matriz[i] # Intercambiar las filas
+        print(f"Intercambio de fila {i+1} con fila {max_index+1} (paso {i+1}):") # Imprimir el paso
+        for fila in matriz: # Imprimir la matriz
+            print([round(elem, 2) for elem in fila]) # Redondeamos los elementos de la fila a 2 decimales
     # Hacer ceros debajo del pivote en la columna actual
-    pivot = matriz[i][i]
-    for j in range(i + 1, n):
-        factor = matriz[j][i] / pivot
-        for k in range(i, n):
-            matriz[j][k] -= factor * matriz[i][k]
-    print(f"Paso {i+1}:")
+    pivot = matriz[i][i] # Obtener el valor del pivote
+    for j in range(i + 1, n): # Iterar sobre las filas debajo del pivote
+        factor = matriz[j][i] / pivot # Calcular el factor por el cual se va a multiplicar la fila
+        for k in range(i, n): # Iterar sobre las columnas de la fila
+            matriz[j][k] -= factor * matriz[i][k] # Restar el producto del factor por el pivote y la fila superior
+    print(f"Paso {i+1}:") # Imprimir el paso
     for fila in matriz:
           print([round(elem, 2) for elem in fila])  # Redondeamos los elementos de la fila a 2 decimales
