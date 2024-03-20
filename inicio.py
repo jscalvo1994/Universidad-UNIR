@@ -1,17 +1,13 @@
 print("Algebra y matematicas discretas")
 print("Bienvenido al curso, este es el ejercicio de pivotaje parcial escalado")
 print("Se definira una matriz de 4x4 y se realizara el pivoteo parcial escalado, por lo tanto se te solicitaran los datos de la matriz")
-
 # Inicializamos la matriz
 matriz = []
-
 # Inicializamos el contador de cadenas válidas
 contador = 0
-
 while contador < 4:
     # Solicitamos al usuario que ingrese los números separados por comas
-    numeros = input(f"Ingrese la cadena de números {contador+1} separados por comas: ")
-
+    numeros = input(f"Ingrese la cadena de números {contador+1} separados por el signo , :")
     # Verificamos que todos los caracteres sean dígitos o comas
     if all(caracter.isdigit() or caracter == ',' for caracter in numeros):
         # Verificamos que no haya más de cuatro números
@@ -25,12 +21,10 @@ while contador < 4:
         else:
             print("La matriz no soporta la cantidad de datos ya que es de 4x4, por favor ingrese una cantidad válida.")
     else:
-        print("Existen valores no numéricos o un separador no detectado en el texto ingresado, por favor digita solo números separados por el signo ,")
-
+        print("Valores no numéricos o separador no reconocido, por favor digita solo números separados por el signo ,")
 # Imprimimos la matriz
 for fila in matriz:
     print(fila)
-
 # Implementación del método de eliminación de Gauss con pivoteo parcial escalado
 n = len(matriz)  # Obtener el tamaño de la matriz
 for i in range(n):
